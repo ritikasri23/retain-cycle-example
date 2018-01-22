@@ -36,6 +36,8 @@ class ViewController: UIViewController {
     }
     
     class Job{
+        
+        // To fix memory leak, add weak before var so that strong reference(by default) between var person and Person class gets converted into weak reference and the object gets deallocated from memory.
         weak var person: Person?
         deinit {
         print("Deallocating Job")
