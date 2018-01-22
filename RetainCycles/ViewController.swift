@@ -15,36 +15,30 @@ class ViewController: UIViewController {
         super.viewDidLoad()
       
        // Instances of Person and Job class
-        
-        var John: Person? = Person()
+        var john: Person? = Person()
         var developer: Job? = Job()
         
         // Reference the two objects with each other
-        
-        John?.job = developer
-        developer?.person = John
+        john?.job = developer
+        developer?.person = john
         
         // Set the value to nil to check deallocation
-        
-        John = nil
+        john = nil
         developer = nil
     
     }
 
     class Person{
         var job : Job?
-        
         deinit{
         print("Deallocating Person")
-       
-        }
-        
+       }
     }
     
     class Job{
         weak var person: Person?
         deinit {
-         print("Deallocating Job")
+        print("Deallocating Job")
         }
     }
 }
